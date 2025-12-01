@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fables de la Fontaine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dynalight&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="fable-2-body">
+    <h1 class="title">Le corbeau et le renard</h1>
+
+    <div class="text-container">
+      <img src="images/raven.png" class="raven" />
+      <p class="text">
+        Maître corbeau, sur un arbre perché,<br />
+        Tenait en son bec un fromage.<br />
+        Maître renard par l'odeur alléché,<br />
+        Lui tint à peu près ce langage :<br />
+        «Et bonjour Monsieur du Corbeau.<br />
+        Que vous êtes joli! que vous me semblez beau!<br />
+        Sans mentir, si votre ramage<br />
+        Se rapporte à votre plumage,<br />
+        Vous êtes le phénix des hôtes de ces bois»<br />
+        A ces mots le corbeau ne se sent pas de joie;<br />
+        Et pour montrer sa belle voix,<br />
+        <button class="drop-button">
+          Il ouvre un large bec laisse tomber sa proie.</button
+        ><br />
+        Le renard s'en saisit et dit: "Mon bon Monsieur,<br />
+        Apprenez que tout flatteur<br />
+        Vit aux dépens de celui qui l'écoute:<br />
+        Cette leçon vaut bien un fromage sans doute."<br />
+        Le corbeau honteux et confus<br />
+        Jura mais un peu tard, qu'on ne l'y prendrait plus.<br />
+      </p>
+      <img src="images/fox.png" class="fox" />
+    </div>
+
+    <img src="images/camembert.png" class="camembert" />
+    <audio id="crow-audio" src="audios/crow.mov"></audio>
+    <script>
+      const dropButton = document.querySelector('.drop-button');
+      const camembert = document.querySelector('.camembert');
+      const crowAudio = document.getElementById('crow-audio');
+
+      dropButton.addEventListener('click', () => {
+        camembert.classList.remove('falling');
+        camembert.classList.add('falling');
+
+        crowAudio.currentTime = 0;
+        crowAudio.play();
+
+        setTimeout(() => {
+          camembert.classList.remove('falling');
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

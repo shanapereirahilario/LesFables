@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fables de la Fontaine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dynalight&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="fable-3-body" id="fable-3-body">
+    <h1 class="title">La cigale et la fourmi</h1>
+    <div class="container">
+      <button class="animal-btn cigale-btn" id="cigale-btn">
+        <img src="images/cigale.png" />
+        <img
+          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGVmN3NzNzZsaHV3cHVob2pud2pna3NwcTRuZmdnYTlkMW9uaDR6MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3gIPV5Ug4gKZavnsrg/giphy.gif"
+          class="music-notes"
+        />
+      </button>
+      <div class="text-container">
+        <p class="text">
+          La Cigale, ayant chanté<br />Tout l’été,<br />Se trouva fort
+          dépourvue<br />Quand la bise fut venue :<br />Pas un seul petit
+          morceau<br />De mouche ou de vermisseau.<br />Elle alla crier
+          famine<br />Chez la Fourmi sa voisine,<br />La priant de lui prêter<br />Quelque
+          grain pour subsister<br />Jusqu’à la saison nouvelle.<br />"Je vous
+          paierai, lui dit-elle,<br />Avant l’Oût, foi d’animal,<br />Intérêt et
+          principal. "<br />La Fourmi n’est pas prêteuse :<br />C’est là son
+          moindre défaut.<br />Que faisiez-vous au temps chaud ?<br />Dit-elle à
+          cette emprunteuse.<br />- Nuit et jour à tout venant<br />Je chantais,
+          ne vous déplaise.<br />- Vous chantiez ? j’en suis fort aise.<br />Eh
+          bien ! dansez maintenant.
+          <div class="door-choice-container">
+            <details class="door-choice">
+              <summary>Ouvrir la porte.</summary>
+              La fourmi, touchée par la détresse de la Cigale, entrouvre la porte.
+              La chaleur de la fourmilière se répand dans l’air glacé. “Entre…
+              mais chante-moi quelque chose pour passer l’hiver”, dit-elle.
+            </details>
+            <details class="door-choice">
+              <summary>Ne pas ouvrir la porte.</summary>
+              La fourmi secoue la tête. “Il fallait chanter l’été, maintenant
+              danse dans la neige.” La Cigale s’éloigne, le vent d’hiver emportant
+              sa chanson interrompue.
+            </details>
+          </div>
+        </p>
+      </div>
+      <button class="animal-btn fourmi-btn" id="fourmi-btn">
+        <img src="images/fourmi.gif" />
+      </button>
+    </div>
+    <img
+      src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExemY0Y2x2OWZjamx4NnF5ZXYxZTF4MWQ4ZWcyajBoYjk0YzU1dDl1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/tIHktzgRi8yjIplFVI/giphy.gif"
+      class="snow"
+    />
+
+    <div class="black-overlay"></div>
+    <audio src="audios/cicada.mp3" autoplay loop id="cicada-audio"></audio>
+
+    <script>
+      const cigaleBtn = document.getElementById('cigale-btn');
+      const fourmiBtn = document.getElementById('fourmi-btn');
+      const cicadaAudio = document.getElementById('cicada-audio');
+      const body = document.getElementById('fable-3-body');
+
+      body.classList.add('cigale');
+      cigaleBtn.classList.add('selected');
+      cicadaAudio.play();
+      cicadaAudio.currentTime = 0;
+
+      cigaleBtn.addEventListener('click', () => {
+        body.classList.remove('fourmi');
+        body.classList.add('cigale');
+        cigaleBtn.classList.add('selected');
+        fourmiBtn.classList.remove('selected');
+        cicadaAudio.play();
+        cicadaAudio.currentTime = 0;
+      });
+
+      fourmiBtn.addEventListener('click', () => {
+        body.classList.remove('cigale');
+        body.classList.add('fourmi');
+        fourmiBtn.classList.add('selected');
+        cigaleBtn.classList.remove('selected');
+        cicadaAudio.pause();
+      });
+    </script>
+  </body>
+</html>

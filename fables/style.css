@@ -1,0 +1,592 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Instrument Serif', serif;
+  background-color: #fff7e7;
+}
+
+h1 {
+  font-family: 'Dynalight', cursive;
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: #b53535;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.fables-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 100px;
+}
+
+.fable-item {
+  text-decoration: none;
+  color: black;
+
+  font-size: 1.5rem;
+  width: 300px;
+  height: 150px;
+
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  position: relative;
+}
+
+.paper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px;
+  transition: transform 0.2s;
+}
+
+.paper-1 {
+  transform: rotate(-3deg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.paper-2 {
+  transform: rotate(2deg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.fable-item:hover .paper-1 {
+  transform: rotate(-5deg);
+}
+
+.fable-item:hover .paper-2 {
+  transform: rotate(8deg);
+}
+
+.paper-top {
+  width: 300px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fable-image {
+  object-fit: cover;
+  position: absolute;
+
+  transition: bottom 0.2s;
+}
+
+.fable-item:hover .fable-image {
+  bottom: 8px;
+}
+
+.turtle {
+  height: 70px;
+  transform: rotate(-10deg);
+  bottom: -60px;
+  right: 0;
+}
+
+.hart {
+  height: 60px;
+  transform: rotate(-10deg);
+  bottom: -65px;
+  left: 8px;
+}
+
+.raven {
+  height: 70px;
+  transform: rotate(-10deg);
+  bottom: -80px;
+  left: 10px;
+}
+
+.fox {
+  height: 80px;
+  bottom: -80px;
+  right: -10px;
+}
+
+.cigale-icon {
+  height: 70px;
+  transform: rotate(-10deg);
+  bottom: -60px;
+  right: 0;
+}
+
+.fourmi-icon {
+  height: 70px;
+  transform: rotate(-10deg);
+  bottom: -70px;
+  left: 0;
+}
+
+/* Fable 1 */
+
+.fable-1 {
+  display: flex;
+  max-height: 100vh;
+  padding: 0 70px;
+  width: 100%;
+  justify-content: space-between;
+  gap: 40px;
+
+  .fable-title {
+    margin-top: 100px;
+    text-align: left;
+  }
+
+  .fable-text-container {
+    width: fit-content;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 100px 0;
+    padding-right: 100px;
+    z-index: 10;
+    position: relative;
+  }
+
+  .fable-text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    padding: 32px;
+    transition: all 0.2s;
+
+    border-color: #b53535;
+    &:hover {
+      background-color: #fadcdc7a;
+    }
+
+    &.selected {
+      background-color: #fadcdc;
+      border-width: 1px;
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .buttons-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.fable-1-body {
+  height: 100vh;
+  position: relative;
+}
+
+.forest {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  height: 200px;
+}
+
+.forest-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 100px;
+  height: 100%;
+  will-change: transform;
+}
+
+/* Animations pour le texte */
+@keyframes scrollTextHare {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollTextTurtle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.fable-text-container.scroll-hare .fable-text-content {
+  animation: scrollTextHare 30s linear infinite;
+}
+
+.fable-text-container.scroll-turtle .fable-text-content {
+  animation: scrollTextTurtle 120s linear infinite;
+}
+
+/* Animations pour la forêt */
+@keyframes scrollForestHare {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollForestTurtle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.forest-row.animate-hare {
+  animation: scrollForestHare 15s linear infinite;
+}
+
+.forest-row.animate-turtle {
+  animation: scrollForestTurtle 60s linear infinite;
+}
+
+.forest img {
+  object-fit: contain;
+  height: 150px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.rabbit-image {
+  transform: scaleX(-1);
+}
+
+.rabbit-image.hidden {
+  display: none;
+}
+
+/* Fable 2 */
+
+.fable-2-body {
+  min-height: 100vh;
+  background-image: url('images/forest.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .title {
+    margin-top: 30px;
+    color: white;
+  }
+
+  .text {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: white;
+  }
+
+  .text-container {
+    width: fit-content;
+    margin: auto;
+    position: relative;
+  }
+
+  .raven {
+    position: absolute;
+    top: -20px;
+    left: -160px;
+    height: 150px;
+    animation: shake 2s;
+    animation-iteration-count: infinite;
+  }
+
+  .fox {
+    position: absolute;
+    bottom: -40px;
+    right: -160px;
+    height: 210px;
+    animation: shake 2s;
+    animation-iteration-count: infinite;
+  }
+
+  .drop-button {
+    display: inline;
+    color: #ff1818;
+    font-size: 1.5rem;
+    font-family: 'Instrument Serif', serif;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: red;
+    text-decoration-style: dotted;
+    text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+    transition: all 0.2s;
+  }
+
+  .drop-button:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #d91717;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: red;
+    text-decoration-style: dotted;
+    text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.fable-2-body .camembert {
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 200px);
+  width: 80px;
+  height: 80px;
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.fable-2-body .camembert.falling {
+  opacity: 1;
+  animation: fall 2s ease-in forwards;
+}
+
+@keyframes fall {
+  0% {
+    top: 50px;
+    left: calc(50% - 200px);
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 110vh;
+    left: calc(50% - 200px);
+    transform: rotate(720deg);
+  }
+}
+
+/* Fable 3 */
+
+.fable-3-body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+
+  .title {
+    padding-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .snow {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    display: none;
+  }
+
+  .animal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    padding: 32px;
+    transition: all 0.2s;
+    margin-top: 48px;
+    background-color: rgba(255, 255, 255, 0.196);
+    backdrop-filter: blur(2px);
+
+    border-color: #b53535;
+    &:hover {
+      background-color: #fadcdc7a;
+    }
+
+    &.selected {
+      background-color: #fadcdc;
+      border-width: 1px;
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .music-notes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 500px;
+      pointer-events: none;
+      display: none;
+    }
+  }
+
+  .text-container {
+    padding-bottom: 100px;
+  }
+
+  .cigale-btn {
+    position: relative;
+  }
+
+  .cigale-btn.selected {
+    background-color: #fadcdc;
+
+    .music-notes {
+      display: block;
+    }
+  }
+
+  .fourmi-btn.selected {
+    background-color: #fadcdc;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .text {
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1.5;
+    text-shadow: 2px 2px 11px rgba(0, 0, 0, 0.32);
+  }
+
+  .black-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.fable-3-body.fourmi {
+  background-image: url('images/forest-winter.png');
+
+  .snow {
+    display: block;
+  }
+}
+
+.fable-3-body.cigale {
+  background-image: url('images/forest-summer.jpeg');
+
+  .music-notes {
+    display: block;
+  }
+}
+
+.door-choice {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1.5;
+  text-shadow: 2px 2px 11px rgba(0, 0, 0, 0.32);
+  max-width: 280px;
+}
+
+.door-choice-container {
+  margin-top: 32px;
+}
